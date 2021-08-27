@@ -18,6 +18,10 @@ export default function App() {
   for(var i = 0; i <= 9; i++){
     numbersKeys.push(i);
   }
+  //function responsible for the logic of the calculator
+  function logicCalculator(testString){
+    alert(testString);
+  }
 
 
   return (
@@ -30,7 +34,7 @@ export default function App() {
       <View style={styles.numbersKeysBox}>
         {
           numbersKeys.map(function(e){
-            return(<ButtonKeyCalc number={e}></ButtonKeyCalc>);
+            return(<ButtonKeyCalc logicCalculator={logicCalculator} number={e}></ButtonKeyCalc>);
           })
         }
       </View>
@@ -43,6 +47,9 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomColor: 'white',
     borderBottomWidth: 2,
+    height:'16.6%',
+    justifyContent:'center',
+    paddingLeft: 20,
   },
   TextTop: {
     fontSize: 24,
@@ -52,6 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap:'wrap',
     borderTopColor: 'black',
-    borderTopWidth:2
+    borderTopWidth:2,
+    height:'66.8%',
   }
 });

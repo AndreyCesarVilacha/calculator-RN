@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native'
 
-export default function ButtonKeyCalc({number}){
+export default function ButtonKeyCalc({number, logicCalculator}){
     return(
     <View style={styles.ButtonContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>logicCalculator("HelloWorld")} style={styles.ButtonOpacity}>
             <Text style={styles.ButtonText}>{number}</Text>
         </TouchableOpacity>
     </View>);
@@ -16,10 +16,16 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderWidth:1,
         width:'33.3%',
+        height:'25%',
     },
     ButtonText: {
-        textAlign:'center',
         fontSize:24,
         color: 'white',
+    },
+    ButtonOpacity: {
+        width:'100%', 
+        height:"100%",
+        justifyContent:'center', 
+        alignItems:'center'
     }
 })
