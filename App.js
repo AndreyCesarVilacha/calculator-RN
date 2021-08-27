@@ -1,21 +1,57 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { LogBox, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import ButtonKeyCalc from './components/ButtonKeyCalc';
+import OperatorKeysCalc from './components/OperatorKeysCalc';
 
 export default function App() {
+
+  LogBox.ignoreAllLogs();
+
+  const [firstNumber, setFirstNumber] = useState(0);
+  const [secondNumber, setSecondNumber] = useState(0);
+  const [operator, setOperator] = useState(""); 
+  const [stringCalculation, setStringCalculation] = useState(0);
+
+  //Numbers show in the keyboard of caculator
+  var numbersKeys = [];
+  for(var i = 0; i <= 9; i++){
+    numbersKeys.push(i);
+  }
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{flex:1,backgroundColor:'black'}}>
+      <StatusBar hidden />
+      <View style={styles.Top}>
+        <Text style={styles.TextTop}>{stringCalculation}</Text>
+      </View>
+      <OperatorKeysCalc/>
+      <View style={styles.numbersKeysBox}>
+        {
+          numbersKeys.map(function(e){
+            return(<ButtonKeyCalc number={e}></ButtonKeyCalc>);
+          })
+        }
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  Top:{
+    padding: 10,
+    borderBottomColor: 'white',
+    borderBottomWidth: 2,
   },
+  TextTop: {
+    fontSize: 24,
+    color: 'white',
+  },
+  numbersKeysBox:{
+    flexDirection: 'row',
+    flexWrap:'wrap',
+    borderTopColor: 'black',
+    borderTopWidth:2
+  }
 });
