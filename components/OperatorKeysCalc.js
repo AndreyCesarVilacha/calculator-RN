@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 
-export default function OperatorKeysCalc (){
+export default function OperatorKeysCalc ({logicCalculator}){
     return(
         <View style={styles.operatorKeysBox}>
-            <TouchableOpacity style={styles.operatorKeys}>
+            <TouchableOpacity style={styles.operatorKeys} onPress={()=>logicCalculator("+")}>
                 <Text style={styles.operatorKeysText}>+</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.operatorKeys}>
+            <TouchableOpacity style={styles.operatorKeys} onPress={()=>logicCalculator("-")}>
                 <Text style={styles.operatorKeysText}>-</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.operatorKeys}>
+            <TouchableOpacity style={styles.operatorKeys}onPress={()=>logicCalculator("/")}>
                 <Text style={styles.operatorKeysText}>/</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.operatorKeys}>
+            <TouchableOpacity style={styles.operatorKeys} onPress={()=>logicCalculator("*")}>
                 <Text style={styles.operatorKeysText}>*</Text>
             </TouchableOpacity>
       </View>

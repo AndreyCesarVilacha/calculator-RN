@@ -19,8 +19,8 @@ export default function App() {
     numbersKeys.push(i);
   }
   //function responsible for the logic of the calculator
-  function logicCalculator(testString){
-    alert(testString);
+  function logicCalculator(n){
+    alert(n);
   }
 
 
@@ -30,7 +30,7 @@ export default function App() {
       <View style={styles.Top}>
         <Text style={styles.TextTop}>{stringCalculation}</Text>
       </View>
-      <OperatorKeysCalc/>
+      <OperatorKeysCalc logicCalculator={logicCalculator}/>
       <View style={styles.numbersKeysBox}>
         {
           numbersKeys.map(function(e){

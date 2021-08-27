@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, View, StyleSheet } from 'react-native'
 export default function ButtonKeyCalc({number, logicCalculator}){
     return(
     <View style={styles.ButtonContainer}>
-        <TouchableOpacity onPress={()=>logicCalculator("HelloWorld")} style={styles.ButtonOpacity}>
+        <TouchableOpacity onPress={()=>logicCalculator(number)} style={styles.ButtonOpacity}>
             <Text style={styles.ButtonText}>{number}</Text>
         </TouchableOpacity>
     </View>);
