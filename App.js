@@ -20,7 +20,38 @@ export default function App() {
   }
   //function responsible for the logic of the calculator
   function logicCalculator(n){
-    alert(n);
+    if(operator == ""){
+      setFirstNumber(parseInt(firstNumber.toString() + n.toString()));
+      setStringCalculation(parseInt(firstNumber.toString() + n.toString()));
+    }
+
+    if((n == "/" || n == "*" || n == "+" || n == "-") && secondNumber == 0){
+      setStringCalculation(firstNumber.toString() + n);
+      setOperator(n);
+    }
+
+    if(operator != ""){
+      setSecondNumber(parseInt(secondNumber.toString() + n.toString()));
+      setStringCalculation(firstNumber + operator + parseInt(secondNumber.toString() + n.toString()))
+    }
+
+    if(n == "="){
+      let result= 0;
+      if(operator == "+"){
+        result = firstNumber + secondNumber;
+      } else if(operator == "-"){
+        result = firstNumber - secondNumber;
+      } else if(operator == "/"){
+        result = firstNumber / secondNumber;
+      } else if(operator == "*"){
+        result = firstNumber * secondNumber;
+      }
+      setStringCalculation(result);
+      setOperator(result);
+      setFirstNumber(result);
+      setSecondNumber(0);
+    }
+
   }
 
 

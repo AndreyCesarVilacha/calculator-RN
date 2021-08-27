@@ -16,6 +16,9 @@ export default function OperatorKeysCalc ({logicCalculator}){
             <TouchableOpacity style={styles.operatorKeys} onPress={()=>logicCalculator("*")}>
                 <Text style={styles.operatorKeysText}>*</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.operatorKeys} onPress={()=>logicCalculator("=")}>
+                <Text style={styles.operatorKeysText}>=</Text>
+            </TouchableOpacity>
       </View>
     )
 }
@@ -27,7 +30,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
       },
     operatorKeys:{
-        width: '25%',
+        width: '20%',
         backgroundColor: 'rgb(20,20,20)',
         justifyContent:'center',
         alignItems:'center',
